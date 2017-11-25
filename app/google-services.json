@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "622595460252",
+    "firebase_url": "https://fir-bird-86649.firebaseio.com",
+    "project_id": "fir-bird-86649",
+    "storage_bucket": "fir-bird-86649.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622595460252:android:801c9612d5f019e2",
+        "android_client_info": {
+          "package_name": "com.nakarin.arsenalpc.firebasebird"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622595460252-ucimolvkk3gv1mroo4bhurjoovlnvos6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nakarin.arsenalpc.firebasebird",
+            "certificate_hash": "5e9a19b4169ff4b90893b3e8f64ad0d17846e2a2"
+          }
+        },
+        {
+          "client_id": "622595460252-5a31i9drc5d04ufsr69ipkj3fi5dvtsd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEV_OnMWDUcsvESyE2NFkAXzfhROD749A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622595460252-5a31i9drc5d04ufsr69ipkj3fi5dvtsd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
