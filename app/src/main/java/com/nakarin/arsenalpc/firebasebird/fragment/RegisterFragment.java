@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.nakarin.arsenalpc.firebasebird.MainActivity;
 import com.nakarin.arsenalpc.firebasebird.R;
@@ -18,6 +21,10 @@ import com.nakarin.arsenalpc.firebasebird.R;
  */
 
 public class RegisterFragment extends Fragment {
+
+    //    Explict
+    private String tag = "25Nov1";
+    private String nameString, emailString, passwordString;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -33,6 +40,34 @@ public class RegisterFragment extends Fragment {
     }//Main method
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.itemSave) {
+            CheckSpec();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void CheckSpec() {
+
+        Log.d(tag, "CheckSpec Work");
+
+//        Initial View
+        EditText nameEditText = getView().findViewById(R.id.edtname);
+        EditText emailEditText = getView().findViewById(R.id.edtemail);
+        EditText passwodEditText = getView().findViewById(R.id.edtpassword);
+
+//        Get Value Frome EditText
+        nameString = nameEditText.getText().toString().trim();
+        emailString = emailEditText.getText().toString().trim();
+        passwordString = passwodEditText.getText().toString().trim();
+
+
+    }//Check spec
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
         inflater.inflate(R.menu.menu_save, menu);
@@ -42,10 +77,9 @@ public class RegisterFragment extends Fragment {
     }
 
 
-
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolberResgiter);
-        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        ((MainActivity) getActivity()).setSupportActionBar(toolbar);
 
 //        setup title
         ((MainActivity) getActivity()).getSupportActionBar().setSubtitle(getString(R.string.register));
