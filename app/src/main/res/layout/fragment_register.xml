@@ -4,7 +4,9 @@
     android:layout_height="match_parent">
 
     <!--Toolber-->
-    <include layout="@layout/my_toolbar"/>
+    <include
+        android:id="@+id/toolberResgiter"
+        layout="@layout/my_toolbar"/>
 
 
 
