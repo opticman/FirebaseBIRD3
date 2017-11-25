@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -24,7 +26,22 @@ public class RegisterFragment extends Fragment {
 //        Create Toolbar
         createToolbar();
 
+//        create menu icon
+
+        setHasOptionsMenu(true);
+
     }//Main method
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+        inflater.inflate(R.menu.menu_save, menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+
+    }
+
+
 
     private void createToolbar() {
         Toolbar toolbar = getView().findViewById(R.id.toolberResgiter);
