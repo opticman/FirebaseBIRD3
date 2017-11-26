@@ -20,6 +20,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.nakarin.arsenalpc.firebasebird.MainActivity;
 import com.nakarin.arsenalpc.firebasebird.R;
 import com.nakarin.arsenalpc.firebasebird.utility.MyAlertDialog;
@@ -36,11 +40,19 @@ public class RegisterFragment extends Fragment {
     private String nameString, emailString, passwordString;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private FirebaseUser firebaseUser;
+    private FirebaseDatabase databaseReference;
 
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+//        Settup Firebase
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
+
 
 //        Create Toolbar
         createToolbar();
@@ -100,7 +112,7 @@ public class RegisterFragment extends Fragment {
 
 
 
-        firebaseAuth = FirebaseAuth.getInstance();
+
         firebaseAuth.createUserWithEmailAndPassword(emailString, passwordString)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -110,6 +122,10 @@ public class RegisterFragment extends Fragment {
 
                         if (task.isSuccessful()) {
                             //Success
+
+                            saveNameDidplayFirebase();
+
+
                             Toast.makeText(getActivity(), "Update Firebase Success",
                                     Toast.LENGTH_SHORT).show();
                             getActivity().getSupportFragmentManager().popBackStack();
@@ -129,6 +145,25 @@ public class RegisterFragment extends Fragment {
 
 
     }   // updateFirebase
+
+    private void saveNameDidplayFirebase() {
+//        GET UID FIREBASE
+        firebaseUser = firebaseAuth.getCurrentUser();
+
+        showLog();
+
+
+
+
+
+
+    } //SaveNameDisplay
+
+    private void showLog() {
+        String tag = "26Nov1";
+        Log.d(tag, "UID==>" + firebaseUser.getUid());
+        Log.d(tag, "Email ==>" + firebaseUser.getEmail());
+    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
