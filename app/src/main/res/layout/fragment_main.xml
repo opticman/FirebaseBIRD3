@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content" />
             <!--Email-->
             <EditText
+                android:id="@+id/edtemail"
                 android:inputType="textEmailAddress"
                 android:hint="@string/email"
                 android:layout_width="match_parent"
@@ -45,6 +46,7 @@
             <!--Email-->
             <!--Password-->
             <EditText
+                android:id="@+id/edtpassword"
                 android:inputType="textPassword"
                 android:hint="Password"
                 android:layout_width="match_parent"
@@ -53,6 +55,7 @@
 
         <!--Login-->
         <Button
+            android:id="@+id/btnlogin"
             android:text="Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
